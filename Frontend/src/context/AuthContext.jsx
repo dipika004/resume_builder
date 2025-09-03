@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
 
   // Signup API call
   const signup = async ({ name, email, password }) => {
-    const res = await axios.post("http://localhost:8080/api/auth/signup", {
+    const res = await axios.post("https://resume-builder-6izk.onrender.com/api/auth/signup", {
       name,
       email,
       password,
@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
 
   // Login API call
   const login = async (email, password) => {
-    const res = await axios.post("http://localhost:8080/api/auth/login", {
+    const res = await axios.post("https://resume-builder-6izk.onrender.com/api/auth/login", {
       email,
       password,
     });

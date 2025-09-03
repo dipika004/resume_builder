@@ -24,7 +24,7 @@ const handleDelete = async () => {
   if (!window.confirm("Are you sure you want to delete this resume?")) return;
 
   try {
-    await axios.delete(`http://localhost:8080/api/resumes/${editId}`, {
+    await axios.delete(`https://resume-builder-6izk.onrender.com/api/resumes/${editId}`, {
       headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))?.token}` },
     });
 
@@ -59,7 +59,7 @@ const handleDelete = async () => {
   useEffect(() => {
     if (editId && !propData) {
       axios
-        .get(`http://localhost:8080/api/resumes/${editId}`, {
+        .get(`https://resume-builder-6izk.onrender.com/api/resumes/${editId}`, {
           headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))?.token}` },
         })
         .then((res) => setResumeData(res.data))
@@ -72,14 +72,14 @@ const handleDelete = async () => {
     try {
       if (editId) {
         await axios.put(
-          `http://localhost:8080/api/resumes/${editId}`,
+          `https://resume-builder-6izk.onrender.com/api/resumes/${editId}`,
           resumeData,
           { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))?.token}` } }
         );
         alert("Resume updated successfully!");
       } else {
         await axios.post(
-          "http://localhost:8080/api/resumes",
+          "https://resume-builder-6izk.onrender.com/api/resumes",
           resumeData,
           { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))?.token}` } }
         );
